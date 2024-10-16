@@ -10,7 +10,7 @@ def read_dictionary(students):
     dict: A dictionary that contains the contents of the CSV file.
     """
     students = {}
-    with open(students, 'r') as file:
+    with open(students, 'r') as csv_file:
         next(file)  # Skip the first line (headings)
         for line in file:
             inumber, name = line.strip().split(',')
