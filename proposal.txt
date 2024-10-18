@@ -35,3 +35,9 @@ CSE 111 Proposal for a Student Chosen Program
 
 6. List the names of the test functions you will write.
 
+1. PROGRAM TITLE: Personal: Finance Manger
+2. REAL-WORLD PROBLEM: The program will address the problem of managing personal finances effectively, which is a common struggle for many individuals.
+3. WHAT I WILL LEARN: I will learn how to design and implement a comprehensive personal finance management system, including budgeting, investment tracking, retirement planning. I will also gain experience with Python modules such as csv, datetime, and matplotlib.
+4. PYTHON MODULE: csv, datetime, matplotlib, pandas
+5. FUNCTION NAMES: add_transaction, view_transaction, set_budget, check_budget, investment_tracker, retirement_planner, calculate_net_worth, generate_budget_report
+6. TEXT FUNCTION NAME: test_add_transaction, test_view_transaction, test_set_budget, test_check_budget, test_investment_checker, test_retirement_planner, test_calculate_net_worth, test_generate_budget_report
