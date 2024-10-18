@@ -1,5 +1,6 @@
 import csv
-from datetime import datetime
+import random
+from datetime import datetime, timedelta
 
 def read_dictionary(filename, key_column_index):
     products = {}
@@ -29,7 +30,13 @@ def main():
                     price = float(product[2])
                     total_items += quantity
                     subtotal += price * quantity
-                    print(f"{product[1]}: {quantity} @ {price:.2f}")
+                    # BOGO discount for item D083
+                    if product_number == 'D083' and quantity > 1:
+                        discount = price * 0.5
+                        print(f"{product[1]}: {quantity} @ {price:.2f} (BOGO 50% off: -{discount:.2f})")
+                        subtotal -= discount
+                    else:
+                        print(f"{product[1]}: {quantity} @ {price:.2f}")
                 else:
                     print(f"Product not found: {product_number}")
         print(f"Number of Items: {total_items}")
@@ -41,6 +48,16 @@ def main():
         print("Thank you for shopping at the Billionaire-Developer.")
         current_date_and_time = datetime.now()
         print(f"{current_date_and_time:%A %I:%M %p}")
+        # Print reminder for New Years Sale
+        new_years_sale_date = datetime(current_date_and_time.year, 1, 1)
+        days_until_sale = (new_years_sale_date - current_date_and_time).days
+        print(f"Reminder: Only {days_until_sale} days until the New Years Sale!")
+        # Print "return by" date
+        return_date = current_date_and_time + timedelta(days=30)
+        print(f"Return by: {return_date:%B %d, %Y} at 9:00 PM")
+        # Print coupon
+        coupon_product = random.choice(list(products_dict.keys()))
+        print(f"Coupon: Buy one {products_dict[coupon_product][1]} get one 50% off!")
     except FileNotFoundError:
         print("Error: missing file")
     except PermissionError:
@@ -49,5 +66,4 @@ def main():
         print(f"Error: {e}")
 
 if __name__ == "__main__":
-    main()
-    
+    main()   
